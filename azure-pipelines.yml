@@ -30,3 +30,11 @@ steps:
     PathtoPublish: '$(Build.ArtifactStagingDirectory)'
     ArtifactName: 'warfile'
     publishLocation: 'Container'
+- task: AzureRmWebAppDeployment@5
+  inputs:
+    ConnectionType: 'AzureRM'
+    azureSubscription: 'Azure subscription 1(86fd9e44-e8f0-45c9-ada4-e31312f6a4e5)'
+    appType: 'webAppLinux'
+    WebAppName: 'myappmahesh'
+    packageForLinux: '$(System.DefaultWorkingDirectory)/**/*.war'
+    DeploymentTypeLinux: 'oneDeploy'
